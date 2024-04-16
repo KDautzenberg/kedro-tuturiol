@@ -1,0 +1,4 @@
+{
+    "files.autoSave": "onFocusChange",
+    "jupyter.notebookFileRoot": "${workspaceFolder}/src"
+}
