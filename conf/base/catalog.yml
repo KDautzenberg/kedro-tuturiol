@@ -69,3 +69,13 @@ regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor.pickle
   versioned: true
+
+active_modelling_pipeline.regressor:
+  type: pickle.PickleDataset
+  filepath: data/06_models/regressor_active.pickle
+  versioned: true
+
+candidate_modelling_pipeline.regressor:
+  type: pickle.PickleDataset
+  filepath: data/06_models/regressor_candidate.pickle
+  versioned: true
