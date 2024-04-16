@@ -39,17 +39,27 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
     return regressor
 
 
-def evaluate_model(
-    regressor: LinearRegression, X_test: pd.DataFrame, y_test: pd.Series
-):
+def evaluate_model(y_pred: pd.Series, y_test: pd.Series):
     """Calculates and logs the coefficient of determination.
 
     Args:
         regressor: Trained model.
-        X_test: Testing data of independent features.
+        y_pred: predictions of the price.
         y_test: Testing data for price.
     """
-    y_pred = regressor.predict(X_test)
     score = r2_score(y_test, y_pred)
     logger = logging.getLogger(__name__)
     logger.info("Model has a coefficient R^2 of %.3f on test data.", score)
+
+def predict_y(regressor: LinearRegression, X_test: pd.DataFrame):
+    """Generates predictions using the trained model.
+
+    Args:
+        regressor: Trained model.
+        X_test: Testing data of independent features.
+    
+        
+    Returns:
+        Predictions for the given test data.
+    """
+    return regressor.predict(X_test)

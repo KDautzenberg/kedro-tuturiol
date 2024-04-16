@@ -1,4 +1,8 @@
 {
     "files.autoSave": "onFocusChange",
-    "jupyter.notebookFileRoot": "${workspaceFolder}/src"
+    "jupyter.notebookFileRoot": "${workspaceFolder}/src",
+    "python.analysis.extraPaths": [
+        "./src/spaceflights_pandas/pipelines/data_science",
+        "./src/spaceflights_pandas/pipelines/data_science"
+    ]
 }
