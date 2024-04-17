@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+import plotly.express as px 
 
 
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
@@ -63,3 +64,18 @@ def predict_y(regressor: LinearRegression, X_test: pd.DataFrame):
         Predictions for the given test data.
     """
     return regressor.predict(X_test)
+
+def plot_results(y_test: pd.Series, y_pred: pd.Series) -> px.scatter:
+    """Plot the results of the model predictions.
+    
+    Args:
+        y_test: pd.Series
+        y_pred: pd.Series
+    
+    Returns:
+        fig: plotly.graph_objs.Figure
+    """
+    
+    fig = px.scatter(x=y_test, y=y_pred, labels={"x": "True", "y": "Predicted"})    
+    fig.update_layout(title="Model Predictions")
+    return fig
