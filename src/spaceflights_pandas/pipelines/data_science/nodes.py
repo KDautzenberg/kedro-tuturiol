@@ -7,7 +7,6 @@ from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
 import plotly.express as px 
 
-
 def split_data(data: pd.DataFrame, parameters: Dict) -> Tuple:
     """Splits data into features and targets training and test sets.
 

@@ -74,3 +74,9 @@ candidate_modelling_pipeline.regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor_candidate.pickle
   versioned: true
+
+candidate_modelling_pipeline.results_plot:
+  type: plotly.JSONDataset
+  filepath: data/08_reporting/candidate_results_plot.json
+  versioned: true
+

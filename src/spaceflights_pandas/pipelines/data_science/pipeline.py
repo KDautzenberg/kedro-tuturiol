@@ -1,7 +1,7 @@
 from kedro.pipeline import Pipeline, node
 from kedro.pipeline.modular_pipeline import pipeline
 
-from .nodes import evaluate_model, split_data, train_model, predict_y
+from .nodes import evaluate_model, split_data, train_model, predict_y, plot_results
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -30,7 +30,13 @@ def create_pipeline(**kwargs) -> Pipeline:
                 inputs=["regressor", "X_test"],
                 outputs="y_pred",
                 name="predict_y_node",
-            )
+            ),
+            node(
+                func=plot_results,
+                inputs=["y_test", "y_pred"],
+                outputs="results_plot",
+                name="plot_results_node",
+            ),
         ]
     )
     ds_pipeline_1 = pipeline(
